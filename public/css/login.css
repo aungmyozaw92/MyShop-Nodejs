@@ -1,0 +1,58 @@
+
+
+
+/* Full-width inputs */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 20px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: darkorange;
+  color: white;
+  padding: 14px 20px;
+  margin: 20px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.8;
+}
+
+/* Media Queries */
+@media screen and (min-width: 768px){
+     form {
+    margin-left: 10%;
+    margin-right:10%;
+    width: 80%;
+}
+
+@media screen and (min-width: 992px){
+     form {
+    margin-left: 30%;
+    margin-right:30%;
+    width: 40%;
+}
+@media screen and (min-width: 1200px){
+    form {
+     margin-left: 30%;
+    margin-right:30%;
+    width: 40%;
+}
+
+@media screen and (max-width: 400px){
+    form {
+    margin-left: 10%;
+    margin-right:10%;
+    width: 80%;
+}
+/* Extra style for the cancel button (red) */
+

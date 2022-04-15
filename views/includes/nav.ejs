@@ -1,0 +1,58 @@
+<div class = "head-top">
+    <a href = "index.html" class = "brand-name-logo">
+        myShop
+    </a>
+    <div>
+        <span class = "head-icon">
+       <a href="/" class = "brand-name <%= path === '/' ? 'active' : '' %>">Home</a>
+        </span>
+        <span class = "head-icon">
+       <a href="/about" class = "brand-name <%= path === '/about' ? 'active' : '' %>">About</a>
+        </span>
+        <span class = "head-icon">
+       <a href="/products" class = "brand-name <%= path === '/products' ? 'active' : '' %>">Product</a>
+        </span>
+        <% if (isAuthenticated) { %>
+             <span class = "head-icon">
+       <a href="/cart" class = "brand-name <%= path === '/cart' ? 'active' : '' %>">Cart</a>
+        </span>
+         <span class = "head-icon">
+       <a href="/order" class = "brand-name <%= path === '/order' ? 'active' : '' %>">Order</a>
+        </span>
+        <span class = "head-icon">
+       <a href="/admin/add-product" class = "brand-name <%= path === 'admin/add-product' ? 'active' : '' %>">Add Product</a>
+        </span>
+        <span class = "head-icon">
+       <a href="/admin/products" class = "brand-name <%= path === '/admin/products' ? 'active' : '' %>">Admin Product</a>
+        </span>
+        <% } %>
+         <% if (!isAuthenticated) { %>
+       <span class = "head-icon">
+       <a href="/login" class = "brand-name <%= path === '/login' ? 'active' : '' %>">Login</a>
+        </span>
+        <span class = "head-icon">
+       <a href="/signup" class = "brand-name <%= path === '/signup' ? 'active' : '' %>">Signup</a>
+        </span>
+        <% } else { %>
+            <span class = "head-icon">
+                <form action="/logout" method="post">
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                    <button class="" type="submit">Logout</button>
+                </form>
+                </a>
+            </span>
+         <% } %>
+    </div>
+    <!-- <div>
+        <span class = "head-icon">
+        <i class = "fas fa-search"></i>
+        </span>
+        
+        <span class = "head-icon">
+        <i class = "fas fa-shopping-bag"></i>
+        </span>
+        <span class = "head-icon">
+        <i class = "fas fa-user-circle"></i>
+        </span>
+    </div> -->
+</div>

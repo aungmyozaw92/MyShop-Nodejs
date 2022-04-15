@@ -1,0 +1,48 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/product-list.css">
+
+  </head>
+  <body>
+    <!-- header -->
+    <header class = "header">
+      <%- include('../includes/nav.ejs') %>
+      <div class = "head-body "></div>
+    </header>
+    <!-- end of header -->
+
+    <div class = "products">
+            <div class = "product-container">
+                <% if (prods.length > 0) { %>
+
+                <div class = "product-items">
+                    <!-- single product -->
+                    <% for (let product of prods) { %>
+                    <article class = "product">
+                        <div class = "product-content">
+                            <div class = "product-img">
+                                <img src="/<%= product.imageUrl %>" alt="<%= product.title %>">
+                            </div>
+                        </div>
+
+                        <div class = "product-info">
+                            <a href = "#" class = "product-name"> <%= product.title %></a>
+                            <p class = "product-price">$  <%= product.price %></p><br>
+                            <a href="/admin/edit-product/<%= product._id %>?edit=true" class="btn">Edit</a>
+                            <input type="hidden" value="<%= product._id %>" name="productId">
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                            <button class="btn" type="button" onclick="deleteProduct(this)">Delete</button>
+                        </div>
+                    </article>
+                    <%}%>
+                    <!-- end of single product -->
+                </div>
+               
+                <% } else { %>
+                    <h1>No Products Found!</h1>
+                <% } %>
+            </div>
+        </div>
+
+    <%- include('../includes/footer.ejs') %>
+  <%- include('../includes/end.ejs') %>
+  <script src="/js/product-delete.js"></script>

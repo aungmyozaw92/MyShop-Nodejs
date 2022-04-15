@@ -1,0 +1,36 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/login.css">
+
+  </head>
+  <body>
+    <!-- header -->
+    <header class = "header">
+      <%- include('../includes/nav.ejs') %>
+      <div class = "head-body "></div>
+    </header>
+    <!-- end of header -->
+
+    <!-- trending product -->
+    <section class="page-section">
+      <div class = "container">
+      <form action="/login" method="post">
+        <% if (errorMessage) { %>
+            <div class="user-message user-message--error"><%= errorMessage %></div>
+        <% } %>
+        <div class="container">
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email" name="email" required value="<%= oldInput.email %>" >
+
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password" required>
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <button type="submit">Login</button>
+            </div>
+        </form>
+        </div>
+    </section>
+    <!-- end of trending product -->
+
+
+    <%- include('../includes/footer.ejs') %>
+  <%- include('../includes/end.ejs') %>
